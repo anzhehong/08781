@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40D0021654B8203893ABCA32 /* Pods_Karaoke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E03B80C6636D0ADA2C97AA17 /* Pods_Karaoke.framework */; };
+		7C25265864E3E46EBF4BFCE2 /* Pods_KaraokeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 109C8A19C6D12E41C853287F /* Pods_KaraokeTests.framework */; };
 		E565353520338921008F9D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565353420338921008F9D1C /* AppDelegate.swift */; };
-		E565353720338921008F9D1C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565353620338921008F9D1C /* FirstViewController.swift */; };
-		E565353920338921008F9D1C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565353820338921008F9D1C /* SecondViewController.swift */; };
 		E565353C20338921008F9D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E565353A20338921008F9D1C /* Main.storyboard */; };
 		E565353E20338921008F9D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E565353D20338921008F9D1C /* Assets.xcassets */; };
 		E565354120338921008F9D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E565353F20338921008F9D1C /* LaunchScreen.storyboard */; };
 		E565354C20338922008F9D1C /* KaraokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565354B20338922008F9D1C /* KaraokeTests.swift */; };
 		E565355720338922008F9D1C /* KaraokeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E565355620338922008F9D1C /* KaraokeUITests.swift */; };
+		E5A3493E208BB92B00D55518 /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A3493D208BB92B00D55518 /* WelcomViewController.swift */; };
+		E5A34940208BB93100D55518 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A3493F208BB93100D55518 /* LoginViewController.swift */; };
+		E5A34942208BB93700D55518 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34941208BB93700D55518 /* ProfileViewController.swift */; };
+		E5A34944208BB94200D55518 /* AlbumTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34943208BB94200D55518 /* AlbumTableTableViewController.swift */; };
+		E5A34946208BB95F00D55518 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34945208BB95F00D55518 /* ControlViewController.swift */; };
+		E5A34948208BB98000D55518 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34947208BB98000D55518 /* ConnectViewController.swift */; };
+		E5A3494A208BB9A800D55518 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34949208BB9A800D55518 /* SettingsViewController.swift */; };
+		E5A3494D208BBE3500D55518 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */; };
+		E7CC819BF52032ED75BB45B6 /* Pods_KaraokeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1965C82D35AAD6D4191CA24B /* Pods_KaraokeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +44,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		109C8A19C6D12E41C853287F /* Pods_KaraokeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaraokeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1965C82D35AAD6D4191CA24B /* Pods_KaraokeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaraokeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22EC56A76624872FD11CD432 /* Pods-KaraokeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraokeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaraokeUITests/Pods-KaraokeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		42B3EF9185F20E0955F4B421 /* Pods-KaraokeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraokeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KaraokeTests/Pods-KaraokeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		45A482926C6B6391AAFE1425 /* Pods-KaraokeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraokeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaraokeTests/Pods-KaraokeTests.release.xcconfig"; sourceTree = "<group>"; };
+		4CAA26661B11D1CCA37C82CE /* Pods-Karaoke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karaoke.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karaoke/Pods-Karaoke.release.xcconfig"; sourceTree = "<group>"; };
+		606DB893232364B5009C1C28 /* Pods-KaraokeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaraokeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KaraokeUITests/Pods-KaraokeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D3763A1457379430EE53FC2 /* Pods-Karaoke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karaoke.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karaoke/Pods-Karaoke.debug.xcconfig"; sourceTree = "<group>"; };
+		E03B80C6636D0ADA2C97AA17 /* Pods_Karaoke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karaoke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E565353120338921008F9D1C /* Karaoke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karaoke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E565353420338921008F9D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E565353620338921008F9D1C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		E565353820338921008F9D1C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		E565353B20338921008F9D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E565353D20338921008F9D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E565354020338921008F9D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +65,14 @@
 		E565355220338922008F9D1C /* KaraokeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaraokeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E565355620338922008F9D1C /* KaraokeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaraokeUITests.swift; sourceTree = "<group>"; };
 		E565355820338922008F9D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5A3493D208BB92B00D55518 /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
+		E5A3493F208BB93100D55518 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E5A34941208BB93700D55518 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E5A34943208BB94200D55518 /* AlbumTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableTableViewController.swift; sourceTree = "<group>"; };
+		E5A34945208BB95F00D55518 /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		E5A34947208BB98000D55518 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		E5A34949208BB9A800D55518 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40D0021654B8203893ABCA32 /* Pods_Karaoke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C25265864E3E46EBF4BFCE2 /* Pods_KaraokeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +96,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7CC819BF52032ED75BB45B6 /* Pods_KaraokeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90CFFFFB769EC3A826A22991 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E03B80C6636D0ADA2C97AA17 /* Pods_Karaoke.framework */,
+				109C8A19C6D12E41C853287F /* Pods_KaraokeTests.framework */,
+				1965C82D35AAD6D4191CA24B /* Pods_KaraokeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		955DD04FE30CC152C9E02EC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D3763A1457379430EE53FC2 /* Pods-Karaoke.debug.xcconfig */,
+				4CAA26661B11D1CCA37C82CE /* Pods-Karaoke.release.xcconfig */,
+				42B3EF9185F20E0955F4B421 /* Pods-KaraokeTests.debug.xcconfig */,
+				45A482926C6B6391AAFE1425 /* Pods-KaraokeTests.release.xcconfig */,
+				22EC56A76624872FD11CD432 /* Pods-KaraokeUITests.debug.xcconfig */,
+				606DB893232364B5009C1C28 /* Pods-KaraokeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E565352820338921008F9D1C = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +133,8 @@
 				E565354A20338922008F9D1C /* KaraokeTests */,
 				E565355520338922008F9D1C /* KaraokeUITests */,
 				E565353220338921008F9D1C /* Products */,
+				955DD04FE30CC152C9E02EC8 /* Pods */,
+				90CFFFFB769EC3A826A22991 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +151,8 @@
 		E565353320338921008F9D1C /* Karaoke */ = {
 			isa = PBXGroup;
 			children = (
+				E5A3494B208BB9B400D55518 /* ViewController */,
 				E565353420338921008F9D1C /* AppDelegate.swift */,
-				E565353620338921008F9D1C /* FirstViewController.swift */,
-				E565353820338921008F9D1C /* SecondViewController.swift */,
 				E565353A20338921008F9D1C /* Main.storyboard */,
 				E565353D20338921008F9D1C /* Assets.xcassets */,
 				E565353F20338921008F9D1C /* LaunchScreen.storyboard */,
@@ -128,6 +179,21 @@
 			path = KaraokeUITests;
 			sourceTree = "<group>";
 		};
+		E5A3494B208BB9B400D55518 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E5A3493D208BB92B00D55518 /* WelcomViewController.swift */,
+				E5A3493F208BB93100D55518 /* LoginViewController.swift */,
+				E5A34941208BB93700D55518 /* ProfileViewController.swift */,
+				E5A34943208BB94200D55518 /* AlbumTableTableViewController.swift */,
+				E5A34947208BB98000D55518 /* ConnectViewController.swift */,
+				E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */,
+				E5A34945208BB95F00D55518 /* ControlViewController.swift */,
+				E5A34949208BB9A800D55518 /* SettingsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E565355B20338922008F9D1C /* Build configuration list for PBXNativeTarget "Karaoke" */;
 			buildPhases = (
+				CE438A0E7F0AC7E234BBA1AE /* [CP] Check Pods Manifest.lock */,
 				E565352D20338921008F9D1C /* Sources */,
 				E565352E20338921008F9D1C /* Frameworks */,
 				E565352F20338921008F9D1C /* Resources */,
+				C0F6A057164664C94E5592B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +220,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E565355E20338922008F9D1C /* Build configuration list for PBXNativeTarget "KaraokeTests" */;
 			buildPhases = (
+				2C32ABFAC65A2B094A94C7B4 /* [CP] Check Pods Manifest.lock */,
 				E565354320338922008F9D1C /* Sources */,
 				E565354420338922008F9D1C /* Frameworks */,
 				E565354520338922008F9D1C /* Resources */,
@@ -170,6 +239,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E565356120338922008F9D1C /* Build configuration list for PBXNativeTarget "KaraokeUITests" */;
 			buildPhases = (
+				2A1825614AE490EAC9709916 /* [CP] Check Pods Manifest.lock */,
 				E565354E20338922008F9D1C /* Sources */,
 				E565354F20338922008F9D1C /* Frameworks */,
 				E565355020338922008F9D1C /* Resources */,
@@ -257,14 +327,95 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A1825614AE490EAC9709916 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KaraokeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C32ABFAC65A2B094A94C7B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KaraokeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0F6A057164664C94E5592B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Karaoke/Pods-Karaoke-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Karaoke/Pods-Karaoke-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE438A0E7F0AC7E234BBA1AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Karaoke-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E565352D20338921008F9D1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E565353920338921008F9D1C /* SecondViewController.swift in Sources */,
+				E5A34942208BB93700D55518 /* ProfileViewController.swift in Sources */,
 				E565353520338921008F9D1C /* AppDelegate.swift in Sources */,
-				E565353720338921008F9D1C /* FirstViewController.swift in Sources */,
+				E5A3494A208BB9A800D55518 /* SettingsViewController.swift in Sources */,
+				E5A3494D208BBE3500D55518 /* ConnectTableViewCell.swift in Sources */,
+				E5A34940208BB93100D55518 /* LoginViewController.swift in Sources */,
+				E5A34944208BB94200D55518 /* AlbumTableTableViewController.swift in Sources */,
+				E5A34948208BB98000D55518 /* ConnectViewController.swift in Sources */,
+				E5A34946208BB95F00D55518 /* ControlViewController.swift in Sources */,
+				E5A3493E208BB92B00D55518 /* WelcomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +579,7 @@
 		};
 		E565355C20338922008F9D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D3763A1457379430EE53FC2 /* Pods-Karaoke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +595,7 @@
 		};
 		E565355D20338922008F9D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CAA26661B11D1CCA37C82CE /* Pods-Karaoke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -458,6 +611,7 @@
 		};
 		E565355F20338922008F9D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42B3EF9185F20E0955F4B421 /* Pods-KaraokeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +629,7 @@
 		};
 		E565356020338922008F9D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A482926C6B6391AAFE1425 /* Pods-KaraokeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +647,7 @@
 		};
 		E565356220338922008F9D1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22EC56A76624872FD11CD432 /* Pods-KaraokeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +664,7 @@
 		};
 		E565356320338922008F9D1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 606DB893232364B5009C1C28 /* Pods-KaraokeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
