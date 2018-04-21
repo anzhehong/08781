@@ -23,6 +23,9 @@
 		E5A34948208BB98000D55518 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34947208BB98000D55518 /* ConnectViewController.swift */; };
 		E5A3494A208BB9A800D55518 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34949208BB9A800D55518 /* SettingsViewController.swift */; };
 		E5A3494D208BBE3500D55518 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */; };
+		E5A34950208BD1A500D55518 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A3494E208BD1A500D55518 /* AlbumTableViewCell.swift */; };
+		E5A34951208BD1A500D55518 /* AlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A3494F208BD1A500D55518 /* AlbumTableViewCell.xib */; };
+		E5A34953208BD31F00D55518 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34952208BD31F00D55518 /* UIViewExtension.swift */; };
 		E7CC819BF52032ED75BB45B6 /* Pods_KaraokeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1965C82D35AAD6D4191CA24B /* Pods_KaraokeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		E5A34947208BB98000D55518 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		E5A34949208BB9A800D55518 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
+		E5A3494E208BD1A500D55518 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		E5A3494F208BD1A500D55518 /* AlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTableViewCell.xib; sourceTree = "<group>"; };
+		E5A34952208BD31F00D55518 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,11 +190,14 @@
 			children = (
 				E5A3493D208BB92B00D55518 /* WelcomViewController.swift */,
 				E5A3493F208BB93100D55518 /* LoginViewController.swift */,
+				E5A34952208BD31F00D55518 /* UIViewExtension.swift */,
 				E5A34941208BB93700D55518 /* ProfileViewController.swift */,
 				E5A34943208BB94200D55518 /* AlbumTableTableViewController.swift */,
 				E5A34947208BB98000D55518 /* ConnectViewController.swift */,
 				E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */,
 				E5A34945208BB95F00D55518 /* ControlViewController.swift */,
+				E5A3494E208BD1A500D55518 /* AlbumTableViewCell.swift */,
+				E5A3494F208BD1A500D55518 /* AlbumTableViewCell.xib */,
 				E5A34949208BB9A800D55518 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
@@ -308,6 +317,7 @@
 				E565354120338921008F9D1C /* LaunchScreen.storyboard in Resources */,
 				E565353E20338921008F9D1C /* Assets.xcassets in Resources */,
 				E565353C20338921008F9D1C /* Main.storyboard in Resources */,
+				E5A34951208BD1A500D55518 /* AlbumTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,10 +382,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Karaoke/Pods-Karaoke-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -409,9 +421,11 @@
 			files = (
 				E5A34942208BB93700D55518 /* ProfileViewController.swift in Sources */,
 				E565353520338921008F9D1C /* AppDelegate.swift in Sources */,
+				E5A34953208BD31F00D55518 /* UIViewExtension.swift in Sources */,
 				E5A3494A208BB9A800D55518 /* SettingsViewController.swift in Sources */,
 				E5A3494D208BBE3500D55518 /* ConnectTableViewCell.swift in Sources */,
 				E5A34940208BB93100D55518 /* LoginViewController.swift in Sources */,
+				E5A34950208BD1A500D55518 /* AlbumTableViewCell.swift in Sources */,
 				E5A34944208BB94200D55518 /* AlbumTableTableViewController.swift in Sources */,
 				E5A34948208BB98000D55518 /* ConnectViewController.swift in Sources */,
 				E5A34946208BB95F00D55518 /* ControlViewController.swift in Sources */,

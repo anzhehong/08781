@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8A1-zf-x7n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -185,7 +185,7 @@
         <scene sceneID="Pyu-05-B83">
             <objects>
                 <navigationController title="Settings" id="e9x-22-5pg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="kzS-zU-mh0"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="icon_settings" id="kzS-zU-mh0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kok-Nm-IQo">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -328,7 +328,7 @@
         <scene sceneID="OZ7-n4-MTy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dYj-y6-RKm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playlist" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Playlist" image="icon_music" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dui-fm-9MS">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="748.79999999999995" y="-320.23988005997006"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Current Playlist-->
         <scene sceneID="pHb-wt-uFO">
             <objects>
-                <tableViewController id="ixk-qq-XyG" sceneMemberID="viewController">
+                <tableViewController id="ixk-qq-XyG" customClass="AlbumTableTableViewController" customModule="Karaoke" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nfx-kU-VdW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -678,13 +678,24 @@
                             <outlet property="delegate" destination="ixk-qq-XyG" id="Vck-u1-uV6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="p2L-l6-o2g">
+                    <navigationItem key="navigationItem" title="Current Playlist" id="p2L-l6-o2g">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="aDT-LX-kvf">
+                            <rect key="frame" x="80" y="7" width="215" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Current Playlist"/>
+                                <segment title="History Playlist"/>
+                            </segments>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" largeContentSizeImage="first" style="plain" systemItem="add" id="2kZ-lv-4vh">
                             <connections>
                                 <segue destination="Bch-fq-epN" kind="show" id="yRX-3T-NgR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentControl" destination="aDT-LX-kvf" id="GuU-z3-DEq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oX2-Rl-dzY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -731,7 +742,7 @@
         <scene sceneID="b4V-Rg-lDh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="25v-ws-W21" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Control" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Control" image="icon_control" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wk1-3j-ftj">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -752,11 +763,13 @@
         <image name="audio-up" width="50" height="50"/>
         <image name="first" width="30" height="30"/>
         <image name="friendaoke_logo" width="1339" height="931"/>
+        <image name="icon_control" width="30" height="30"/>
+        <image name="icon_music" width="30" height="30"/>
+        <image name="icon_settings" width="30" height="30"/>
         <image name="next" width="50" height="50"/>
         <image name="play" width="50" height="50"/>
         <image name="prev" width="50" height="50"/>
         <image name="record" width="50" height="50"/>
-        <image name="second" width="30" height="30"/>
         <image name="voice-effect" width="50" height="50"/>
     </resources>
 </document>
