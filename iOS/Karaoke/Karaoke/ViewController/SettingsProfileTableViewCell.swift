@@ -1,5 +1,5 @@
 //
-//  AlbumTableViewCell.swift
+//  SettingsProfileTableViewCell.swift
 //  Karaoke
 //
 //  Created by 安哲宏 on 4/21/18.
@@ -7,21 +7,18 @@
 //
 
 import UIKit
-import SwipeCellKit
 
-class AlbumTableViewCell: SwipeTableViewCell {
-    
+class SettingsProfileTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var avatorImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
-    @IBOutlet weak var singerLabel: UILabel!
-    
-    @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -30,4 +27,3 @@ class AlbumTableViewCell: SwipeTableViewCell {
     }
     
 }
-

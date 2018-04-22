@@ -50,9 +50,9 @@
         <!--Root View Controller-->
         <scene sceneID="fqa-1S-XB1">
             <objects>
-                <tableViewController id="HNh-Al-S60" sceneMemberID="viewController">
+                <tableViewController id="HNh-Al-S60" customClass="SettingsTableViewController" customModule="Karaoke" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnv-d5-TBU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -143,7 +143,45 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJi-v7-RtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1720.8" y="1159.9700149925038"/>
+            <point key="canvasLocation" x="2367" y="1210"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="c78-3d-Pqm">
+            <objects>
+                <viewController id="tmg-aw-FW0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5SZ-xd-b1L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQK-3S-nu0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="354"/>
+                                <connections>
+                                    <segue destination="HNh-Al-S60" kind="embed" id="8nz-Z2-A5r"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️ powered by Friendaoke" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-mQ-BiT">
+                                <rect key="frame" x="84.5" y="572" width="206" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C1d-mQ-BiT" firstAttribute="centerX" secondItem="Wcr-wE-oKS" secondAttribute="centerX" id="2Zh-7Z-2tC"/>
+                            <constraint firstItem="Wcr-wE-oKS" firstAttribute="bottom" secondItem="C1d-mQ-BiT" secondAttribute="bottom" constant="25" id="GoT-bT-gzh"/>
+                            <constraint firstItem="Wcr-wE-oKS" firstAttribute="bottom" secondItem="rQK-3S-nu0" secondAttribute="bottom" constant="200" id="edt-MB-0s4"/>
+                            <constraint firstItem="Wcr-wE-oKS" firstAttribute="trailing" secondItem="rQK-3S-nu0" secondAttribute="trailing" id="fwP-Id-o02"/>
+                            <constraint firstItem="rQK-3S-nu0" firstAttribute="top" secondItem="Wcr-wE-oKS" secondAttribute="top" id="hcI-Ot-Mpl"/>
+                            <constraint firstItem="rQK-3S-nu0" firstAttribute="leading" secondItem="Wcr-wE-oKS" secondAttribute="leading" id="nG7-QS-KPR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wcr-wE-oKS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="D9u-wn-OWA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWu-Sg-4Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="1159.9700149925038"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Pyu-05-B83">
@@ -155,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="HNh-Al-S60" kind="relationship" relationship="rootViewController" id="j3N-QN-uf5"/>
+                        <segue destination="tmg-aw-FW0" kind="relationship" relationship="rootViewController" id="78P-7o-0tZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUx-k7-X8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>

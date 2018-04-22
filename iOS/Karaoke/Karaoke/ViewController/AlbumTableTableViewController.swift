@@ -19,7 +19,7 @@ class AlbumTableTableViewController: UITableViewController, SwipeTableViewCellDe
         super.viewDidLoad()
         segmentControl.addTarget(self, action: #selector(segmentTouched), for: .valueChanged)
         initFakeData()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
