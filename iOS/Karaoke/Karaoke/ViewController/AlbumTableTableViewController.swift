@@ -64,6 +64,8 @@ class AlbumTableTableViewController: UITableViewController, SwipeTableViewCellDe
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
+            self.dataCollection.remove(at: indexPath.row)
+            tableView.reloadData()
         }
         
         // customize the action appearance
