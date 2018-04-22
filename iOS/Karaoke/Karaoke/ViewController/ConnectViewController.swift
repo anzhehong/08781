@@ -50,8 +50,8 @@ class ConnectViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        
+        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootTab") as! UITabBarController
+        present(tabVC, animated: true, completion: nil)
     }
     
 
