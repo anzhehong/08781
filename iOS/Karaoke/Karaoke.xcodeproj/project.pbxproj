@@ -28,6 +28,21 @@
 		E5A34955208C116800D55518 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34954208C116800D55518 /* SettingsTableViewController.swift */; };
 		E5A34958208C11B200D55518 /* SettingsProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A34956208C11B200D55518 /* SettingsProfileTableViewCell.swift */; };
 		E5A34959208C11B200D55518 /* SettingsProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A34957208C11B200D55518 /* SettingsProfileTableViewCell.xib */; };
+		E5BFB321208E60D700183DBF /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB320208E60D700183DBF /* AudioViewController.swift */; };
+		E5BFB3D0208FD6B800183DBF /* SingingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3CF208FD6B800183DBF /* SingingViewController.mm */; };
+		E5BFB3E8208FD74B00183DBF /* FIRFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3D1208FD74700183DBF /* FIRFilter.cpp */; };
+		E5BFB3E9208FD74B00183DBF /* SoundTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3D2208FD74700183DBF /* SoundTouch.cpp */; };
+		E5BFB3EA208FD74B00183DBF /* AAFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3D3208FD74700183DBF /* AAFilter.cpp */; };
+		E5BFB3EB208FD74B00183DBF /* FIFOSampleBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3D6208FD74800183DBF /* FIFOSampleBuffer.cpp */; };
+		E5BFB3EC208FD74B00183DBF /* PeakFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3D7208FD74800183DBF /* PeakFinder.cpp */; };
+		E5BFB3ED208FD74B00183DBF /* RateTransposer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3D8208FD74800183DBF /* RateTransposer.cpp */; };
+		E5BFB3EE208FD74B00183DBF /* sse_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3DA208FD74800183DBF /* sse_optimized.cpp */; };
+		E5BFB3EF208FD74B00183DBF /* cpu_detect_x86.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3DB208FD74800183DBF /* cpu_detect_x86.cpp */; };
+		E5BFB3F0208FD74B00183DBF /* TDStretch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3DF208FD74900183DBF /* TDStretch.cpp */; };
+		E5BFB3F1208FD74B00183DBF /* BPMDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3E2208FD74A00183DBF /* BPMDetect.cpp */; };
+		E5BFB3F2208FD74B00183DBF /* mmx_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3E6208FD74A00183DBF /* mmx_optimized.cpp */; };
+		E5BFB3F7208FDA9100183DBF /* MCAudioInputQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3F5208FDA9100183DBF /* MCAudioInputQueue.m */; };
+		E5BFB3F8208FDA9100183DBF /* AVAudioPlayer+PCM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3F6208FDA9100183DBF /* AVAudioPlayer+PCM.m */; };
 		E7CC819BF52032ED75BB45B6 /* Pods_KaraokeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1965C82D35AAD6D4191CA24B /* Pods_KaraokeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +98,37 @@
 		E5A34954208C116800D55518 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E5A34956208C11B200D55518 /* SettingsProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableViewCell.swift; sourceTree = "<group>"; };
 		E5A34957208C11B200D55518 /* SettingsProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsProfileTableViewCell.xib; sourceTree = "<group>"; };
+		E5BFB319208E5F4000183DBF /* Karaoke-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Karaoke-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5BFB320208E60D700183DBF /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		E5BFB3CE208FD6B800183DBF /* SingingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingingViewController.h; sourceTree = "<group>"; };
+		E5BFB3CF208FD6B800183DBF /* SingingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SingingViewController.mm; sourceTree = "<group>"; };
+		E5BFB3D1208FD74700183DBF /* FIRFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIRFilter.cpp; sourceTree = "<group>"; };
+		E5BFB3D2208FD74700183DBF /* SoundTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundTouch.cpp; sourceTree = "<group>"; };
+		E5BFB3D3208FD74700183DBF /* AAFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AAFilter.cpp; sourceTree = "<group>"; };
+		E5BFB3D4208FD74700183DBF /* SoundTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTouch.h; sourceTree = "<group>"; };
+		E5BFB3D5208FD74800183DBF /* STTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTypes.h; sourceTree = "<group>"; };
+		E5BFB3D6208FD74800183DBF /* FIFOSampleBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIFOSampleBuffer.cpp; sourceTree = "<group>"; };
+		E5BFB3D7208FD74800183DBF /* PeakFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeakFinder.cpp; sourceTree = "<group>"; };
+		E5BFB3D8208FD74800183DBF /* RateTransposer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RateTransposer.cpp; sourceTree = "<group>"; };
+		E5BFB3D9208FD74800183DBF /* cpu_detect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu_detect.h; sourceTree = "<group>"; };
+		E5BFB3DA208FD74800183DBF /* sse_optimized.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sse_optimized.cpp; sourceTree = "<group>"; };
+		E5BFB3DB208FD74800183DBF /* cpu_detect_x86.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpu_detect_x86.cpp; sourceTree = "<group>"; };
+		E5BFB3DC208FD74900183DBF /* BPMDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMDetect.h; sourceTree = "<group>"; };
+		E5BFB3DD208FD74900183DBF /* PeakFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeakFinder.h; sourceTree = "<group>"; };
+		E5BFB3DE208FD74900183DBF /* RateTransposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateTransposer.h; sourceTree = "<group>"; };
+		E5BFB3DF208FD74900183DBF /* TDStretch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDStretch.cpp; sourceTree = "<group>"; };
+		E5BFB3E0208FD74900183DBF /* FIFOSamplePipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSamplePipe.h; sourceTree = "<group>"; };
+		E5BFB3E1208FD74900183DBF /* FIFOSampleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSampleBuffer.h; sourceTree = "<group>"; };
+		E5BFB3E2208FD74A00183DBF /* BPMDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BPMDetect.cpp; sourceTree = "<group>"; };
+		E5BFB3E3208FD74A00183DBF /* AAFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAFilter.h; sourceTree = "<group>"; };
+		E5BFB3E4208FD74A00183DBF /* FIRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIRFilter.h; sourceTree = "<group>"; };
+		E5BFB3E5208FD74A00183DBF /* soundtouch_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundtouch_config.h; sourceTree = "<group>"; };
+		E5BFB3E6208FD74A00183DBF /* mmx_optimized.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mmx_optimized.cpp; sourceTree = "<group>"; };
+		E5BFB3E7208FD74A00183DBF /* TDStretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDStretch.h; sourceTree = "<group>"; };
+		E5BFB3F3208FDA9100183DBF /* AVAudioPlayer+PCM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAudioPlayer+PCM.h"; sourceTree = "<group>"; };
+		E5BFB3F4208FDA9100183DBF /* MCAudioInputQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAudioInputQueue.h; sourceTree = "<group>"; };
+		E5BFB3F5208FDA9100183DBF /* MCAudioInputQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAudioInputQueue.m; sourceTree = "<group>"; };
+		E5BFB3F6208FDA9100183DBF /* AVAudioPlayer+PCM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAudioPlayer+PCM.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +207,8 @@
 		E565353320338921008F9D1C /* Karaoke */ = {
 			isa = PBXGroup;
 			children = (
+				E5BFB3AB208FD64300183DBF /* SoundTouch */,
+				E5BFB318208E5F2100183DBF /* Library */,
 				E5A3494B208BB9B400D55518 /* ViewController */,
 				E565353420338921008F9D1C /* AppDelegate.swift */,
 				E565353A20338921008F9D1C /* Main.storyboard */,
@@ -199,14 +247,59 @@
 				E5A34943208BB94200D55518 /* AlbumTableTableViewController.swift */,
 				E5A34947208BB98000D55518 /* ConnectViewController.swift */,
 				E5A3494C208BBE3500D55518 /* ConnectTableViewCell.swift */,
+				E5BFB320208E60D700183DBF /* AudioViewController.swift */,
 				E5A34945208BB95F00D55518 /* ControlViewController.swift */,
 				E5A3494E208BD1A500D55518 /* AlbumTableViewCell.swift */,
 				E5A3494F208BD1A500D55518 /* AlbumTableViewCell.xib */,
 				E5A34954208C116800D55518 /* SettingsTableViewController.swift */,
 				E5A34956208C11B200D55518 /* SettingsProfileTableViewCell.swift */,
 				E5A34957208C11B200D55518 /* SettingsProfileTableViewCell.xib */,
+				E5BFB3CE208FD6B800183DBF /* SingingViewController.h */,
+				E5BFB3CF208FD6B800183DBF /* SingingViewController.mm */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E5BFB318208E5F2100183DBF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E5BFB3F3208FDA9100183DBF /* AVAudioPlayer+PCM.h */,
+				E5BFB3F6208FDA9100183DBF /* AVAudioPlayer+PCM.m */,
+				E5BFB3F4208FDA9100183DBF /* MCAudioInputQueue.h */,
+				E5BFB3F5208FDA9100183DBF /* MCAudioInputQueue.m */,
+				E5BFB319208E5F4000183DBF /* Karaoke-Bridging-Header.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		E5BFB3AB208FD64300183DBF /* SoundTouch */ = {
+			isa = PBXGroup;
+			children = (
+				E5BFB3D3208FD74700183DBF /* AAFilter.cpp */,
+				E5BFB3E3208FD74A00183DBF /* AAFilter.h */,
+				E5BFB3E2208FD74A00183DBF /* BPMDetect.cpp */,
+				E5BFB3DC208FD74900183DBF /* BPMDetect.h */,
+				E5BFB3DB208FD74800183DBF /* cpu_detect_x86.cpp */,
+				E5BFB3D9208FD74800183DBF /* cpu_detect.h */,
+				E5BFB3D6208FD74800183DBF /* FIFOSampleBuffer.cpp */,
+				E5BFB3E1208FD74900183DBF /* FIFOSampleBuffer.h */,
+				E5BFB3E0208FD74900183DBF /* FIFOSamplePipe.h */,
+				E5BFB3D1208FD74700183DBF /* FIRFilter.cpp */,
+				E5BFB3E4208FD74A00183DBF /* FIRFilter.h */,
+				E5BFB3E6208FD74A00183DBF /* mmx_optimized.cpp */,
+				E5BFB3D7208FD74800183DBF /* PeakFinder.cpp */,
+				E5BFB3DD208FD74900183DBF /* PeakFinder.h */,
+				E5BFB3D8208FD74800183DBF /* RateTransposer.cpp */,
+				E5BFB3DE208FD74900183DBF /* RateTransposer.h */,
+				E5BFB3E5208FD74A00183DBF /* soundtouch_config.h */,
+				E5BFB3D2208FD74700183DBF /* SoundTouch.cpp */,
+				E5BFB3D4208FD74700183DBF /* SoundTouch.h */,
+				E5BFB3DA208FD74800183DBF /* sse_optimized.cpp */,
+				E5BFB3D5208FD74800183DBF /* STTypes.h */,
+				E5BFB3DF208FD74900183DBF /* TDStretch.cpp */,
+				E5BFB3E7208FD74A00183DBF /* TDStretch.h */,
+			);
+			path = SoundTouch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +374,7 @@
 				TargetAttributes = {
 					E565353020338921008F9D1C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					E565354620338922008F9D1C = {
@@ -388,11 +482,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Karaoke/Pods-Karaoke-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
@@ -426,18 +522,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BFB3EF208FD74B00183DBF /* cpu_detect_x86.cpp in Sources */,
+				E5BFB3EC208FD74B00183DBF /* PeakFinder.cpp in Sources */,
+				E5BFB3F2208FD74B00183DBF /* mmx_optimized.cpp in Sources */,
+				E5BFB3EB208FD74B00183DBF /* FIFOSampleBuffer.cpp in Sources */,
 				E5A34942208BB93700D55518 /* ProfileViewController.swift in Sources */,
+				E5BFB3F7208FDA9100183DBF /* MCAudioInputQueue.m in Sources */,
 				E565353520338921008F9D1C /* AppDelegate.swift in Sources */,
+				E5BFB3E8208FD74B00183DBF /* FIRFilter.cpp in Sources */,
+				E5BFB3EA208FD74B00183DBF /* AAFilter.cpp in Sources */,
+				E5BFB3F8208FDA9100183DBF /* AVAudioPlayer+PCM.m in Sources */,
 				E5A34958208C11B200D55518 /* SettingsProfileTableViewCell.swift in Sources */,
+				E5BFB3E9208FD74B00183DBF /* SoundTouch.cpp in Sources */,
 				E5A34953208BD31F00D55518 /* UIViewExtension.swift in Sources */,
+				E5BFB321208E60D700183DBF /* AudioViewController.swift in Sources */,
+				E5BFB3F1208FD74B00183DBF /* BPMDetect.cpp in Sources */,
 				E5A34955208C116800D55518 /* SettingsTableViewController.swift in Sources */,
+				E5BFB3EE208FD74B00183DBF /* sse_optimized.cpp in Sources */,
 				E5A3494D208BBE3500D55518 /* ConnectTableViewCell.swift in Sources */,
 				E5A34940208BB93100D55518 /* LoginViewController.swift in Sources */,
+				E5BFB3ED208FD74B00183DBF /* RateTransposer.cpp in Sources */,
 				E5A34950208BD1A500D55518 /* AlbumTableViewCell.swift in Sources */,
 				E5A34944208BB94200D55518 /* AlbumTableTableViewController.swift in Sources */,
 				E5A34948208BB98000D55518 /* ConnectViewController.swift in Sources */,
 				E5A34946208BB95F00D55518 /* ControlViewController.swift in Sources */,
 				E5A3493E208BB92B00D55518 /* WelcomViewController.swift in Sources */,
+				E5BFB3F0208FD74B00183DBF /* TDStretch.cpp in Sources */,
+				E5BFB3D0208FD6B800183DBF /* SingingViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,12 +715,15 @@
 			baseConfigurationReference = 9D3763A1457379430EE53FC2 /* Pods-Karaoke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QNQ63R334;
 				INFOPLIST_FILE = Karaoke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmu.edu.08781.Karaoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Karaoke/Library/Karaoke-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -620,12 +734,14 @@
 			baseConfigurationReference = 4CAA26661B11D1CCA37C82CE /* Pods-Karaoke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QNQ63R334;
 				INFOPLIST_FILE = Karaoke/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmu.edu.08781.Karaoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Karaoke/Library/Karaoke-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

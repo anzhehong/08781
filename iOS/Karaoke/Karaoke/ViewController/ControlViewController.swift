@@ -27,6 +27,8 @@ class ControlViewController: UIViewController {
     var albumNameLabel: UILabel!
     var albumSingerLabel: UILabel!
 
+    var effectEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -149,6 +151,7 @@ class ControlViewController: UIViewController {
         
         lockButton = makeButton(imgName: "locker_locked")
         container.addSubview(lockButton)
+        lockButton.addTarget(self, action: #selector(lockScreen), for: .touchUpInside)
         
         let leading = 10
         albumImageView.snp.makeConstraints { (make) in
@@ -180,6 +183,7 @@ class ControlViewController: UIViewController {
         self.view.addSubview(recordButton)
         effectButton = makeButton(imgName: "voice_effect")
         self.view.addSubview(effectButton)
+        effectButton.addTarget(self, action: #selector(changeEffectStatus), for: .touchUpInside)
         
         recordButton.snp.makeConstraints { (make) in
             make.top.equalTo(outerCircle.snp.bottom).offset(30)
@@ -201,6 +205,20 @@ class ControlViewController: UIViewController {
         button.setImage(img, for: .normal)
         button.tintColor = UIColor.white
         return button
+    }
+    
+    @objc func changeEffectStatus() {
+        self.effectEnabled = !self.effectEnabled
+        let str = self.effectEnabled ? "You have enabled voice effect!" : "You have disabled voice effect!"
+        let vc = UIAlertController(title: "Effect Status Changed", message: str, preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func lockScreen() {
+        let singingVC: SingingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "singingVC") as! SingingViewController
+        singingVC.setEffectEnabled(self.effectEnabled)
+        self.present(singingVC, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

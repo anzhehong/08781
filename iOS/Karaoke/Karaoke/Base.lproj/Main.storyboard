@@ -284,28 +284,85 @@
             </objects>
             <point key="canvasLocation" x="-734" y="2"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Cvk-g1-A09">
+        <!--Singing View Controller-->
+        <scene sceneID="F8S-36-qDf">
             <objects>
-                <tableViewController id="Glh-Rv-7Xb" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y73-iF-XEa">
+                <viewController storyboardIdentifier="singingVC" id="yaq-nl-czw" customClass="SingingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vmJ-ym-s9W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Glh-Rv-7Xb" id="hPW-97-ApQ"/>
-                            <outlet property="delegate" destination="Glh-Rv-7Xb" id="ypW-WK-35b"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vBZ-sc-hUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kzb-0i-SFI">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6K-dq-u4l">
+                                <rect key="frame" x="124" y="153" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-Qq-iDz">
+                                <rect key="frame" x="124" y="242" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="yaq-nl-czw" eventType="touchUpInside" id="O95-4s-oGg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="duration = 0.0s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b62-jR-eMQ">
+                                <rect key="frame" x="-13" y="201" width="320" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone" translatesAutoresizingMaskIntoConstraints="NO" id="ZZo-v7-QTp">
+                                <rect key="frame" x="50" y="70" width="275" height="547"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vq-Bz-8fU">
+                                <rect key="frame" x="164.5" y="148" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="M8d-uj-sRi"/>
+                                    <constraint firstAttribute="width" constant="45" id="UV6-TS-uPQ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="locker_open"/>
+                                <connections>
+                                    <action selector="unlockButtonClicked:" destination="yaq-nl-czw" eventType="touchUpInside" id="cCF-yj-v5Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoi-wT-Sx0">
+                                <rect key="frame" x="153" y="576" width="68" height="30"/>
+                                <state key="normal" title="Start Sing"/>
+                                <connections>
+                                    <action selector="startOrStop:" destination="yaq-nl-czw" eventType="touchUpInside" id="3mw-wd-oLw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nK4-1z-VGn" firstAttribute="bottom" secondItem="ZZo-v7-QTp" secondAttribute="bottom" constant="50" id="Nva-pn-Igg"/>
+                            <constraint firstItem="5vq-Bz-8fU" firstAttribute="centerX" secondItem="ZZo-v7-QTp" secondAttribute="centerX" id="PyE-Yj-bLH"/>
+                            <constraint firstItem="ZZo-v7-QTp" firstAttribute="top" secondItem="5vq-Bz-8fU" secondAttribute="bottom" constant="-123" id="TBb-7g-Sax"/>
+                            <constraint firstItem="ZZo-v7-QTp" firstAttribute="leading" secondItem="nK4-1z-VGn" secondAttribute="leading" constant="50" id="bdc-rZ-Doc"/>
+                            <constraint firstItem="xoi-wT-Sx0" firstAttribute="centerX" secondItem="ZZo-v7-QTp" secondAttribute="centerX" id="dXb-fl-dug"/>
+                            <constraint firstItem="nK4-1z-VGn" firstAttribute="trailing" secondItem="ZZo-v7-QTp" secondAttribute="trailing" constant="50" id="h6V-Un-qeG"/>
+                            <constraint firstItem="ZZo-v7-QTp" firstAttribute="top" secondItem="nK4-1z-VGn" secondAttribute="top" constant="50" id="kWw-su-lhN"/>
+                            <constraint firstItem="xoi-wT-Sx0" firstAttribute="top" secondItem="ZZo-v7-QTp" secondAttribute="bottom" constant="-41" id="myP-2Z-70S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nK4-1z-VGn"/>
+                    </view>
+                    <connections>
+                        <outlet property="durationLabel" destination="b62-jR-eMQ" id="mVR-Oo-SVa"/>
+                        <outlet property="lockButton" destination="5vq-Bz-8fU" id="igo-eU-G9c"/>
+                        <outlet property="microphoneImageView" destination="ZZo-v7-QTp" id="9Rc-IA-ea4"/>
+                        <outlet property="playButton" destination="Asw-Qq-iDz" id="14y-Oy-ZVP"/>
+                        <outlet property="startOrStopButton" destination="xoi-wT-Sx0" id="giW-JU-XhT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2zY-7i-VJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-908" y="775"/>
+            <point key="canvasLocation" x="-738" y="732"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -766,5 +823,7 @@
         <image name="icon_control" width="30" height="30"/>
         <image name="icon_music" width="30" height="30"/>
         <image name="icon_settings" width="30" height="30"/>
+        <image name="locker_open" width="128" height="128"/>
+        <image name="microphone" width="899" height="899"/>
     </resources>
 </document>

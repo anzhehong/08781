@@ -1,20 +1,24 @@
 PODS:
+  - CocoaAsyncSocket (7.6.3)
   - SnapKit (4.0.0)
   - SwipeCellKit (2.2.0)
 
 DEPENDENCIES:
+  - CocoaAsyncSocket
   - SnapKit (~> 4.0.0)
   - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - CocoaAsyncSocket
     - SnapKit
     - SwipeCellKit
 
 SPEC CHECKSUMS:
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
 
-PODFILE CHECKSUM: 797c2f4e2d5c0ba1ff0b79e36a20e90c0e1d4aba
+PODFILE CHECKSUM: 04c16148ca77450f028f792b61cf97e9919664bb
 
 COCOAPODS: 1.5.0
