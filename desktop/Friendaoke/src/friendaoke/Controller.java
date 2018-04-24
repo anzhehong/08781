@@ -23,6 +23,13 @@ import java.io.File;
 
 public class Controller {
 
+    private final static String PLAY = "PLAY";
+    private final static String PAUSE = "PAUS";
+    private final static String NEXT = "NEXT";
+    private final static String PREVIOUS = "PREV";
+    private final static String VOLUME_UP = "VOLUME_UP";
+    private final static String VOLUME_DOWN = "VOLUME_DOWN";
+
     @FXML
     public MediaView mediaView;
 
@@ -65,7 +72,7 @@ public class Controller {
         property.addListener((observable, oldValue, newValue) -> {
             System.out.println("oldValue: " + oldValue);
             System.out.println("newValue: " + newValue);
-//            controlMedia();
+            processCommand(newValue);
         });
 
         voiceStreamService = new VoiceStreamService();
@@ -76,6 +83,49 @@ public class Controller {
 
         property.bind(commandService.messageProperty());
 
+    }
+
+    private void processCommand(String command) {
+        switch (command) {
+            case PLAY:
+            case PAUSE:
+                controlMedia();
+                break;
+            case VOLUME_UP:
+                setVolumeUp();
+                break;
+            case VOLUME_DOWN:
+                setVolumeDown();
+                break;
+            case PREVIOUS:
+                prevMedia();
+                break;
+            case NEXT:
+                nextMedia();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void setVolumeUp() {
+        volumeSlider.increment();
+    }
+
+    private void setVolumeDown() {
+        volumeSlider.decrement();
+    }
+
+    private void nextMedia() {
+        int selected = videoList.getSelectionModel().getSelectedIndex();
+        int next = (selected+1) % videoList.getItems().size();
+        videoList.getSelectionModel().selectIndices(next);
+    }
+
+    private void prevMedia() {
+        int selected = videoList.getSelectionModel().getSelectedIndex();
+        int prev = (selected+videoList.getItems().size()-1) % videoList.getItems().size();
+        videoList.getSelectionModel().selectIndices(prev);
     }
 
     public void onPlayButtonClick(ActionEvent actionEvent) {
