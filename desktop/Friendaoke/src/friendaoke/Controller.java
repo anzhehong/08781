@@ -272,17 +272,17 @@ public class Controller {
             "  {\n" +
             "    \"name\": \"Look What You Made Me Do\",\n" +
             "    \"artist\": \"Taylor Swift\",\n" +
-            "    \"albumURL\": \"https://en.wikipedia.org/wiki/File:Taylor_Swift_-_Look_What_You_Made_Me_Do.png\"\n" +
+            "    \"albumURL\": \"https://upload.wikimedia.org/wikipedia/en/6/68/Taylor_Swift_-_Look_What_You_Made_Me_Do.png\"\n" +
             "  },\n" +
             "  {\n" +
             "    \"name\": \"I Got You\",\n" +
             "    \"artist\": \"Bebe Rexha\",\n" +
-            "    \"albumURL\": \"https://en.wikipedia.org/wiki/File:Bebe_Rexha_-_I_Got_You.png\"\n" +
+            "    \"albumURL\": \"https://upload.wikimedia.org/wikipedia/en/c/c9/Bebe_Rexha_-_I_Got_You.png\"\n" +
             "  },\n" +
             "  {\n" +
             "    \"name\": \"Church Bells\",\n" +
             "    \"artist\": \"Carrie Underwood\",\n" +
-            "    \"albumURL\": \"https://en.wikipedia.org/wiki/File:Carrie_Underwood_-_Church_Bells_(Official_Single_Cover).png\"\n" +
+            "    \"albumURL\": \"https://upload.wikimedia.org/wikipedia/en/5/51/Carrie_Underwood_-_Church_Bells_%28Official_Single_Cover%29.png\"\n" +
             "  }\n" +
             "]";
 }
