@@ -36,14 +36,12 @@ public class VoiceStreamService extends Service<Void> {
 
     @Override
     public boolean cancel() {
-//        try {
-//            serverSocket.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return super.cancel();
-//        }
-        if (line != null)
+        if (UDPServerSocket != null) {
+            UDPServerSocket.close();
+        }
+        if (line != null) {
             line.close();
+        }
         return super.cancel();
     }
 
@@ -77,12 +75,17 @@ public class VoiceStreamService extends Service<Void> {
         line.open(format);
         line.start();
 
+        byte[] buf = new byte[4410];
+        DatagramPacket packet
+                = new DatagramPacket(buf, buf.length);
+
         while (true) {
-            byte[] buf = new byte[4410];
-            DatagramPacket packet
-                    = new DatagramPacket(buf, buf.length);
-            UDPServerSocket.receive(packet);
-            System.out.println("received packet...");
+            try {
+                UDPServerSocket.receive(packet);
+            } catch (Exception e) {
+                e.printStackTrace();
+                break;
+            }
             line.write(packet.getData(), 0, packet.getData().length);
         }
     }
