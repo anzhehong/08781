@@ -145,7 +145,7 @@ public class Controller {
 
     private void selectMedia(String command) {
         StringTokenizer tokenizer = new StringTokenizer(command, DELIM);
-        if (tokenizer.nextToken().equals(SELECT)) {
+        if (tokenizer.hasMoreTokens() && tokenizer.nextToken().equals(SELECT)) {
             String selectedVideoName = tokenizer.nextToken();
             int i = 0;
             for (; i < videoInfoList.size(); i++) {
