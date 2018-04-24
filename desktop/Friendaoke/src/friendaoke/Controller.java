@@ -23,6 +23,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class Controller {
 
@@ -32,6 +33,9 @@ public class Controller {
     private final static String PREVIOUS = "PREV";
     private final static String VOLUME_UP = "VOLUME_UP";
     private final static String VOLUME_DOWN = "VOLUME_DOWN";
+
+    private final static String SELECT = "SELECT";
+    private final static String DELIM = "@";
 
     public final static String VIDEO_LIST_REQUEST = "VIDEO_LIST_REQUEST";
 
@@ -114,6 +118,7 @@ public class Controller {
                 nextMedia();
                 break;
             default:
+                selectMedia(command);
                 break;
         }
     }
@@ -136,6 +141,20 @@ public class Controller {
         int selected = videoList.getSelectionModel().getSelectedIndex();
         int prev = (selected+videoList.getItems().size()-1) % videoList.getItems().size();
         videoList.getSelectionModel().selectIndices(prev);
+    }
+
+    private void selectMedia(String command) {
+        StringTokenizer tokenizer = new StringTokenizer(command, DELIM);
+        if (tokenizer.nextToken().equals(SELECT)) {
+            String selectedVideoName = tokenizer.nextToken();
+            int i = 0;
+            for (; i < videoInfoList.size(); i++) {
+                if (videoInfoList.get(i).getName().equals(selectedVideoName)) {
+                    break;
+                }
+            }
+            videoList.getSelectionModel().selectIndices(i);
+        }
     }
 
     public void onPlayButtonClick(ActionEvent actionEvent) {
