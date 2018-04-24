@@ -218,15 +218,17 @@ public class Controller {
         }
 
         void updateValues() {
-            if (mediaPlayer.getStatus() == MediaPlayer.Status.READY && timeSlider != null && volumeSlider != null) {
+            if (timeSlider != null && volumeSlider != null) {
                 Platform.runLater(() -> {
                     Duration currentTime = mediaPlayer.getCurrentTime();
-                    timeSlider.setDisable(duration.isUnknown());
-                    if (!timeSlider.isDisabled()
-                            && duration.greaterThan(Duration.ZERO)
-                            && !timeSlider.isValueChanging()) {
-                        timeSlider.setValue(currentTime.divide(duration).toMillis()
-                                * 100.0);
+                    if (duration != null) {
+                        timeSlider.setDisable(duration.isUnknown());
+                        if (!timeSlider.isDisabled()
+                                && duration.greaterThan(Duration.ZERO)
+                                && !timeSlider.isValueChanging()) {
+                            timeSlider.setValue(currentTime.divide(duration).toMillis()
+                                    * 100.0);
+                        }
                     }
                     if (!volumeSlider.isValueChanging()) {
                         volumeSlider.setValue((int)Math.round(mediaPlayer.getVolume()
