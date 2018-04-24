@@ -20,6 +20,8 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
 
@@ -159,6 +161,15 @@ public class Controller {
         }
     }
 
+    List<String> getNames() {
+        List<String> ret = new ArrayList<>();
+        ret.add("Total Eclipse Of The Heart.mp4");
+        ret.add("Look What You Made Me Do.mp4");
+        ret.add("I Got You.mp4");
+        ret.add("Church Bells in the style of Carrie Underwood.mp4");
+        return ret;
+    }
+
     public void dispose() {
         for (MediaPlayerItem item : videoList.getItems()) {
             item.mediaPlayer.dispose();
@@ -170,10 +181,9 @@ public class Controller {
     public ObservableList<MediaPlayerItem> getMediaItems() {
         ObservableList<MediaPlayerItem> mediaItems = FXCollections.observableArrayList(
                 i -> new Observable[]{i.mediaName});
-        mediaItems.add(new MediaPlayerItem("test1.mp4"));
-        mediaItems.add(new MediaPlayerItem("test2.mp4"));
-        mediaItems.add(new MediaPlayerItem("test3.mp4"));
-        mediaItems.add(new MediaPlayerItem("test4.mp4"));
+        for (String name : getNames()) {
+            mediaItems.add(new MediaPlayerItem(name));
+        }
         return mediaItems;
     }
 
