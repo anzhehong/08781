@@ -1,12 +1,18 @@
 package friendaoke.services;
 
+import com.google.gson.Gson;
+import friendaoke.VideoInfoBean;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
+
+import static friendaoke.Controller.VIDEO_LIST_REQUEST;
 
 public class CommandService extends Service<Void> {
 
@@ -14,6 +20,13 @@ public class CommandService extends Service<Void> {
 
     private ServerSocket serverSocket = null;
     private DataInputStream in = null;
+
+    private List<VideoInfoBean> videoInfoBeanList;
+
+    public CommandService(List<VideoInfoBean> videos) {
+        super();
+        videoInfoBeanList = videos;
+    }
 
     @Override
     protected Task<Void> createTask() {
@@ -26,12 +39,28 @@ public class CommandService extends Service<Void> {
                 while (true) {
                     String command;
                     if (!((command = in.readUTF()) == null)) {
-                        updateMessage(command);
+                        if (command.equals(VIDEO_LIST_REQUEST)) {
+                            sendVideoInfo(clientSocket);
+                        } else {
+                            updateMessage(command);
+                        }
                     }
                 }
 //                return null;
             }
         };
+    }
+
+    private void sendVideoInfo(Socket clientSocket) {
+        Gson gson = new Gson();
+        String video = gson.toJson(videoInfoBeanList);
+        DataOutputStream out;
+        try {
+            out = new DataOutputStream(clientSocket.getOutputStream());
+            out.writeUTF(video);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

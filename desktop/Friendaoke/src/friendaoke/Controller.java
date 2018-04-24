@@ -1,5 +1,7 @@
 package friendaoke;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import friendaoke.services.CommandService;
 import friendaoke.services.VoiceStreamService;
 import javafx.application.Platform;
@@ -20,7 +22,6 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -31,6 +32,8 @@ public class Controller {
     private final static String PREVIOUS = "PREV";
     private final static String VOLUME_UP = "VOLUME_UP";
     private final static String VOLUME_DOWN = "VOLUME_DOWN";
+
+    public final static String VIDEO_LIST_REQUEST = "VIDEO_LIST_REQUEST";
 
     @FXML
     public MediaView mediaView;
@@ -46,8 +49,13 @@ public class Controller {
     private Service voiceStreamService = null;
     private Service commandService = null;
 
+    private List<VideoInfoBean> videoInfoList;
+
     @FXML
     public void initialize() {
+
+        videoInfoList = getVideoInfoList();
+
         videoList.setItems(getMediaItems());
         videoList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             mediaView.setMediaPlayer(observable.getValue().mediaPlayer);
@@ -80,7 +88,7 @@ public class Controller {
         voiceStreamService = new VoiceStreamService();
         voiceStreamService.start();
 
-        commandService = new CommandService();
+        commandService = new CommandService(videoInfoList);
         commandService.start();
 
         property.bind(commandService.messageProperty());
@@ -161,13 +169,11 @@ public class Controller {
         }
     }
 
-    List<String> getNames() {
-        List<String> ret = new ArrayList<>();
-        ret.add("Total Eclipse Of The Heart.mp4");
-        ret.add("Look What You Made Me Do.mp4");
-        ret.add("I Got You.mp4");
-        ret.add("Church Bells in the style of Carrie Underwood.mp4");
-        return ret;
+    List<VideoInfoBean> getVideoInfoList() {
+        Gson gson = new Gson();
+        List<VideoInfoBean> list =
+                gson.fromJson(VIDEO_INFO, new TypeToken<List<VideoInfoBean>>(){}.getType());
+        return list;
     }
 
     public void dispose() {
@@ -181,8 +187,8 @@ public class Controller {
     public ObservableList<MediaPlayerItem> getMediaItems() {
         ObservableList<MediaPlayerItem> mediaItems = FXCollections.observableArrayList(
                 i -> new Observable[]{i.mediaName});
-        for (String name : getNames()) {
-            mediaItems.add(new MediaPlayerItem(name));
+        for (VideoInfoBean video : videoInfoList) {
+            mediaItems.add(new MediaPlayerItem(video.getName() + ".mp4"));
         }
         return mediaItems;
     }
@@ -235,4 +241,27 @@ public class Controller {
             return mediaName.get();
         }
     }
+
+    private static final String VIDEO_INFO = "[\n" +
+            "  {\n" +
+            "    \"name\": \"Total Eclipse Of The Heart\",\n" +
+            "    \"artist\": \"Bonnie Tyler\",\n" +
+            "    \"albumURL\": \"https://upload.wikimedia.org/wikipedia/en/0/09/Total_Eclipse_of_the_Heart_-_single_cover.jpg\"\n" +
+            "  },\n" +
+            "  {\n" +
+            "    \"name\": \"Look What You Made Me Do\",\n" +
+            "    \"artist\": \"Taylor Swift\",\n" +
+            "    \"albumURL\": \"https://en.wikipedia.org/wiki/File:Taylor_Swift_-_Look_What_You_Made_Me_Do.png\"\n" +
+            "  },\n" +
+            "  {\n" +
+            "    \"name\": \"I Got You\",\n" +
+            "    \"artist\": \"Bebe Rexha\",\n" +
+            "    \"albumURL\": \"https://en.wikipedia.org/wiki/File:Bebe_Rexha_-_I_Got_You.png\"\n" +
+            "  },\n" +
+            "  {\n" +
+            "    \"name\": \"Church Bells\",\n" +
+            "    \"artist\": \"Carrie Underwood\",\n" +
+            "    \"albumURL\": \"https://en.wikipedia.org/wiki/File:Carrie_Underwood_-_Church_Bells_(Official_Single_Cover).png\"\n" +
+            "  }\n" +
+            "]";
 }
