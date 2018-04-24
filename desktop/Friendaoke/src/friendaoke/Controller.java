@@ -102,8 +102,10 @@ public class Controller {
                 selectedMediaPlayerItem.atEndOfMedia = false;
             }
             player.play();
+            playButton.setText("PAUSE");
         } else {
             player.pause();
+            playButton.setText("PLAY");
         }
     }
 

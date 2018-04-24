@@ -15,7 +15,9 @@ public class Main extends Application {
         root.setStyle("-fx-background-image: url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxsasGQIwQNwjek3F1nSwlfx60g6XpOggnxw5dyQrtCL_0x8IW')");
 
         primaryStage.setTitle("Friendaoke Desktop");
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("css/style.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(event -> {
