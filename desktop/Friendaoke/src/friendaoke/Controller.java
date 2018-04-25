@@ -27,15 +27,15 @@ import java.util.StringTokenizer;
 
 public class Controller {
 
-    private final static String PLAY = "PLAY";
-    private final static String PAUSE = "PAUS";
-    private final static String NEXT = "NEXT";
-    private final static String PREVIOUS = "PREV";
-    private final static String VOLUME_UP = "VOLUME_UP";
-    private final static String VOLUME_DOWN = "VOLUME_DOWN";
+    public final static String PLAY = "PLAY";
+    public final static String PAUSE = "PAUS";
+    public final static String NEXT = "NEXT";
+    public final static String PREVIOUS = "PREV";
+    public final static String VOLUME_UP = "VOLUME_UP";
+    public final static String VOLUME_DOWN = "VOLUME_DOWN";
 
-    private final static String SELECT = "SELECT";
-    private final static String DELIM = "@";
+    public final static String SELECT = "SELECT";
+    public final static String DELIM = "@";
 
     public final static String VIDEO_LIST_REQUEST = "VIDEO_LIST_REQUEST";
 
@@ -64,7 +64,8 @@ public class Controller {
         videoList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             mediaView.setMediaPlayer(observable.getValue().mediaPlayer);
             selectedMediaPlayerItem = observable.getValue();
-            selectedMediaPlayerItem.updateValues();
+            selectedMediaPlayerItem.updateTimeSlider();
+            selectedMediaPlayerItem.updateVolumeValues();
         });
         videoList.getSelectionModel().selectFirst();
 
@@ -77,9 +78,7 @@ public class Controller {
         });
 
         volumeSlider.valueProperty().addListener(ov -> {
-            if (volumeSlider.isValueChanging()) {
-                selectedMediaPlayerItem.mediaPlayer.setVolume(volumeSlider.getValue() / 100.0);
-            }
+            selectedMediaPlayerItem.mediaPlayer.setVolume(volumeSlider.getValue() / 100.0);
         });
 
         property = new SimpleStringProperty();
@@ -92,7 +91,7 @@ public class Controller {
         voiceStreamService = new VoiceStreamService();
         voiceStreamService.start();
 
-        commandService = new CommandService(videoInfoList);
+        commandService = new CommandService(this, videoInfoList);
         commandService.start();
 
         property.bind(commandService.messageProperty());
@@ -112,35 +111,45 @@ public class Controller {
                 setVolumeDown();
                 break;
             case PREVIOUS:
+                controlMedia();
                 prevMedia();
+                controlMedia();
                 break;
             case NEXT:
+                controlMedia();
                 nextMedia();
+                controlMedia();
+                break;
+            case SELECT:
+                controlMedia();
+                selectMedia(command);
+                controlMedia();
                 break;
             default:
-                selectMedia(command);
                 break;
         }
     }
 
-    private void setVolumeUp() {
+    public void setVolumeUp() {
         volumeSlider.increment();
     }
 
-    private void setVolumeDown() {
+    public void setVolumeDown() {
         volumeSlider.decrement();
     }
 
-    private void nextMedia() {
+    public void nextMedia() {
         int selected = videoList.getSelectionModel().getSelectedIndex();
         int next = (selected+1) % videoList.getItems().size();
         videoList.getSelectionModel().selectIndices(next);
+        selectedMediaPlayerItem.mediaPlayer.seek(selectedMediaPlayerItem.mediaPlayer.getStartTime());
     }
 
-    private void prevMedia() {
+    public void prevMedia() {
         int selected = videoList.getSelectionModel().getSelectedIndex();
         int prev = (selected+videoList.getItems().size()-1) % videoList.getItems().size();
         videoList.getSelectionModel().selectIndices(prev);
+        selectedMediaPlayerItem.mediaPlayer.seek(selectedMediaPlayerItem.mediaPlayer.getStartTime());
     }
 
     private void selectMedia(String command) {
@@ -222,7 +231,7 @@ public class Controller {
         MediaPlayerItem(String mediaName) {
             this.mediaName.set(mediaName);
             mediaPlayer = new MediaPlayer(new Media(getClass().getResource(videoFolder + File.separator + mediaName).toExternalForm()));
-            mediaPlayer.currentTimeProperty().addListener(ov -> updateValues());
+            mediaPlayer.currentTimeProperty().addListener(ov -> updateTimeSlider());
             mediaPlayer.setOnReady(() -> duration = mediaPlayer.getMedia().getDuration());
             mediaPlayer.setOnPlaying(() -> {
                 if (stopRequested) {
@@ -236,8 +245,8 @@ public class Controller {
             });
         }
 
-        void updateValues() {
-            if (timeSlider != null && volumeSlider != null) {
+        void updateTimeSlider() {
+            if (timeSlider != null) {
                 Platform.runLater(() -> {
                     Duration currentTime = mediaPlayer.getCurrentTime();
                     if (duration != null) {
@@ -249,9 +258,16 @@ public class Controller {
                                     * 100.0);
                         }
                     }
+                });
+            }
+        }
+
+        void updateVolumeValues() {
+            if (volumeSlider != null) {
+                Platform.runLater(() -> {
                     if (!volumeSlider.isValueChanging()) {
                         volumeSlider.setValue((int)Math.round(mediaPlayer.getVolume()
-                                * 100));
+                                * 60));
                     }
                 });
             }
