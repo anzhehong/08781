@@ -43,6 +43,8 @@
 		E5BFB3F2208FD74B00183DBF /* mmx_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3E6208FD74A00183DBF /* mmx_optimized.cpp */; };
 		E5BFB3F7208FDA9100183DBF /* MCAudioInputQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3F5208FDA9100183DBF /* MCAudioInputQueue.m */; };
 		E5BFB3F8208FDA9100183DBF /* AVAudioPlayer+PCM.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3F6208FDA9100183DBF /* AVAudioPlayer+PCM.m */; };
+		E5BFB3FA208FEFE400183DBF /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3F9208FEFE400183DBF /* SocketManager.swift */; };
+		E5BFB3FD2090089600183DBF /* WaveHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5BFB3FB2090089600183DBF /* WaveHeader.cpp */; };
 		E7CC819BF52032ED75BB45B6 /* Pods_KaraokeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1965C82D35AAD6D4191CA24B /* Pods_KaraokeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,9 @@
 		E5BFB3F4208FDA9100183DBF /* MCAudioInputQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCAudioInputQueue.h; sourceTree = "<group>"; };
 		E5BFB3F5208FDA9100183DBF /* MCAudioInputQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCAudioInputQueue.m; sourceTree = "<group>"; };
 		E5BFB3F6208FDA9100183DBF /* AVAudioPlayer+PCM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAudioPlayer+PCM.m"; sourceTree = "<group>"; };
+		E5BFB3F9208FEFE400183DBF /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		E5BFB3FB2090089600183DBF /* WaveHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveHeader.cpp; sourceTree = "<group>"; };
+		E5BFB3FC2090089600183DBF /* WaveHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +261,7 @@
 				E5A34957208C11B200D55518 /* SettingsProfileTableViewCell.xib */,
 				E5BFB3CE208FD6B800183DBF /* SingingViewController.h */,
 				E5BFB3CF208FD6B800183DBF /* SingingViewController.mm */,
+				E5BFB3F9208FEFE400183DBF /* SocketManager.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 		E5BFB318208E5F2100183DBF /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				E5BFB3FB2090089600183DBF /* WaveHeader.cpp */,
+				E5BFB3FC2090089600183DBF /* WaveHeader.h */,
 				E5BFB3F3208FDA9100183DBF /* AVAudioPlayer+PCM.h */,
 				E5BFB3F6208FDA9100183DBF /* AVAudioPlayer+PCM.m */,
 				E5BFB3F4208FDA9100183DBF /* MCAudioInputQueue.h */,
@@ -524,6 +532,7 @@
 			files = (
 				E5BFB3EF208FD74B00183DBF /* cpu_detect_x86.cpp in Sources */,
 				E5BFB3EC208FD74B00183DBF /* PeakFinder.cpp in Sources */,
+				E5BFB3FA208FEFE400183DBF /* SocketManager.swift in Sources */,
 				E5BFB3F2208FD74B00183DBF /* mmx_optimized.cpp in Sources */,
 				E5BFB3EB208FD74B00183DBF /* FIFOSampleBuffer.cpp in Sources */,
 				E5A34942208BB93700D55518 /* ProfileViewController.swift in Sources */,
@@ -538,6 +547,7 @@
 				E5BFB321208E60D700183DBF /* AudioViewController.swift in Sources */,
 				E5BFB3F1208FD74B00183DBF /* BPMDetect.cpp in Sources */,
 				E5A34955208C116800D55518 /* SettingsTableViewController.swift in Sources */,
+				E5BFB3FD2090089600183DBF /* WaveHeader.cpp in Sources */,
 				E5BFB3EE208FD74B00183DBF /* sse_optimized.cpp in Sources */,
 				E5A3494D208BBE3500D55518 /* ConnectTableViewCell.swift in Sources */,
 				E5A34940208BB93100D55518 /* LoginViewController.swift in Sources */,
@@ -719,6 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QNQ63R334;
 				INFOPLIST_FILE = Karaoke/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmu.edu.08781.Karaoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -738,6 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QNQ63R334;
 				INFOPLIST_FILE = Karaoke/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmu.edu.08781.Karaoke;
 				PRODUCT_NAME = "$(TARGET_NAME)";

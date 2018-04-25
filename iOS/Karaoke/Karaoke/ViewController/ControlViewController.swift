@@ -87,19 +87,28 @@ class ControlViewController: UIViewController {
             make.center.equalTo(innerCircle)
             make.width.height.equalTo(width)
         }
-        
-        volumeUpButton = makeButton(imgName: "volume_up")
-        outerCircle.addSubview(volumeUpButton)
-        
-        volumeDownButton = makeButton(imgName: "volume_down")
-        outerCircle.addSubview(volumeDownButton)
-        
+        playButton.tag = 0
+        playButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
+
         nextSongButton = makeButton(imgName: "next_song")
         outerCircle.addSubview(nextSongButton)
+        nextSongButton.tag = 1
+        nextSongButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
         
         previousSongButton = makeButton(imgName: "previous_song")
         outerCircle.addSubview(previousSongButton)
+        previousSongButton.tag = 2
+        previousSongButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
         
+        volumeUpButton = makeButton(imgName: "volume_up")
+        outerCircle.addSubview(volumeUpButton)
+        volumeUpButton.tag = 3
+        volumeUpButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
+        
+        volumeDownButton = makeButton(imgName: "volume_down")
+        outerCircle.addSubview(volumeDownButton)
+        volumeDownButton.tag = 4
+        volumeDownButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
         
         
         volumeUpButton.snp.makeConstraints { (make) in
@@ -219,6 +228,23 @@ class ControlViewController: UIViewController {
         let singingVC: SingingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "singingVC") as! SingingViewController
         singingVC.setEffectEnabled(self.effectEnabled)
         self.present(singingVC, animated: true, completion: nil)
+    }
+    
+    @objc func sendCommand(sender: UIButton) {
+        var cmd = ""
+        if sender.tag == 0 {
+            cmd = "PLAY"
+        } else if sender.tag == 1 {
+            cmd = "NEXT"
+        } else if sender.tag == 2 {
+            cmd = "PREV"
+        } else if sender.tag == 3 {
+            cmd = "VOLUME_UP"
+        } else if sender.tag == 4 {
+            cmd = "VOLUME_DOWN"
+        }
+        
+        SocketManager.sendCmd(cmd: cmd)
     }
 
     override func didReceiveMemoryWarning() {

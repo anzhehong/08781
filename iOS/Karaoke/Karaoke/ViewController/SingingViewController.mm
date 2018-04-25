@@ -9,11 +9,12 @@
 #import <netdb.h>
 
 #import "SoundTouch.h"
+#include "WaveHeader.h"
 
 
 static const NSTimeInterval bufferDuration = 0.2;
 
-@interface SingingViewController ()<MCAudioInputQueueDelegate, GCDAsyncUdpSocketDelegate>
+@interface SingingViewController ()<MCAudioInputQueueDelegate, GCDAsyncUdpSocketDelegate, AVAudioPlayerDelegate>
 {
 @private
     AudioStreamBasicDescription _format;
@@ -29,7 +30,6 @@ static const NSTimeInterval bufferDuration = 0.2;
     NSString *_host;
     int _port;
     
-//    GCDAsyncSocket* _socket;
     GCDAsyncUdpSocket* _socket;
     
     soundtouch::SoundTouch mSoundTouch;
@@ -183,6 +183,9 @@ static const NSTimeInterval bufferDuration = 0.2;
     [self.view bringSubviewToFront:self.lockButton];
     [self.view bringSubviewToFront:self.startOrStopButton];
     
+    [self.playButton setTintColor:[UIColor redColor]];
+    [self.view bringSubviewToFront:self.playButton];
+    
     [self.microphoneImageView setTintColor:[UIColor lightGrayColor]];
     [self.lockButton setTintColor:[UIColor blueColor]];
 }
@@ -193,6 +196,8 @@ static const NSTimeInterval bufferDuration = 0.2;
     [_player stop];
     _player = [[AVAudioPlayer alloc] initWithPcmData:_data pcmFormat:_format error:nil];
     [_player play];
+    
+//    [self playWave];
 }
 
 #pragma mark - record
@@ -225,6 +230,8 @@ static const NSTimeInterval bufferDuration = 0.2;
     
     [_recorder stop];
     _recorder = nil;
+    
+    [self saveRecording];
     
     [self _refreshUI];
 }
@@ -302,26 +309,6 @@ static const NSTimeInterval bufferDuration = 0.2;
         finalData = soundTouchDatas;
     } else finalData = data;
     
-    
-    // save
-//    NSMutableData *wavDatas = [[NSMutableData alloc] init];
-    
-//    int fileLength = soundTouchDatas.length;
-//    void *header = createWaveHeader(fileLength, 1, 16000, 16);
-//    [wavDatas appendBytes:header length:44];
-//
-//    [wavDatas appendData:soundTouchDatas];
-//
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
-//    [wavDatas writeToFile:filePath atomically:YES];
-//
-//    [soundTouchDatas release];
-//    [wavDatas release];
-//
-//    [_delegate onSaveFileEnd];
-    
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         // todo: test
         [_socket sendData:finalData
@@ -342,22 +329,55 @@ static const NSTimeInterval bufferDuration = 0.2;
     }); 
 }
 
-//- (void)playWave
-//{
+- (void)saveRecording
+{
+//    NSMutableData *wavDatas = [[NSMutableData alloc] init];
+//
+//    int fileLength = _data.length;
+//    void *header = createWaveHeader(fileLength, 1, 16000, 16);
+//    [wavDatas appendBytes:header length:44];
+//
+//    [wavDatas appendData:_data];
+//
 //    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 //    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
-//    
-//    if (audioPalyer) {
-//        [audioPalyer release];
-//        audioPalyer = nil;
-//    }
-//    
+//    [wavDatas writeToFile:filePath atomically:YES];
+}
+
+- (void)playWave
+{
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
+//    AVAudioPlayer *audioPalyer;
+////    if (audioPalyer) {
+////        [audioPalyer release];
+////        audioPalyer = nil;
+////    }
+//
+//    NSError *error;
 //    NSURL *url = [NSURL URLWithString:filePath];
-//    audioPalyer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+//    NSData *audioData = [NSData dataWithContentsOfFile:filePath];
+////    audioPalyer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+//    audioPalyer = [[AVAudioPlayer alloc] initWithData:audioData fileTypeHint:AVFileTypeMPEGLayer3
+//                                  error:&error];
+//    if (error) {
+//        NSLog(@"%@", error);
+//    }
 //    audioPalyer.delegate = self;
 //    [audioPalyer prepareToPlay];
 //    [audioPalyer play];
-//}
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    NSLog(@"audioPlayerDidFinishPlaying");
+}
+
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
+{
+    NSLog(@"audioPlayerDecodeErrorDidOccur");
+    NSLog(@"%@", error);
+}
 
 - (void)inputQueue:(MCAudioInputQueue *)inputQueue errorOccur:(NSError *)error
 {
