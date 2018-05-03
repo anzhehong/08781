@@ -299,16 +299,6 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-Qq-iDz">
-                                <rect key="frame" x="124" y="242" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="1" green="0.4090395308" blue="0.19173955879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="play:" destination="yaq-nl-czw" eventType="touchUpInside" id="O95-4s-oGg"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="duration = 0.0s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b62-jR-eMQ">
                                 <rect key="frame" x="-13" y="201" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -338,10 +328,21 @@
                                     <action selector="startOrStop:" destination="yaq-nl-czw" eventType="touchUpInside" id="3mw-wd-oLw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-Qq-iDz">
+                                <rect key="frame" x="164" y="607" width="46" height="30"/>
+                                <state key="normal" title="Replay">
+                                    <color key="titleColor" red="1" green="0.4090395308" blue="0.19173955879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="yaq-nl-czw" eventType="touchUpInside" id="O95-4s-oGg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Asw-Qq-iDz" firstAttribute="centerX" secondItem="xoi-wT-Sx0" secondAttribute="centerX" id="Kik-Fy-16f"/>
                             <constraint firstItem="nK4-1z-VGn" firstAttribute="bottom" secondItem="ZZo-v7-QTp" secondAttribute="bottom" constant="50" id="Nva-pn-Igg"/>
+                            <constraint firstItem="Asw-Qq-iDz" firstAttribute="top" secondItem="xoi-wT-Sx0" secondAttribute="bottom" constant="1" id="Omr-qY-0Ob"/>
                             <constraint firstItem="5vq-Bz-8fU" firstAttribute="centerX" secondItem="ZZo-v7-QTp" secondAttribute="centerX" id="PyE-Yj-bLH"/>
                             <constraint firstItem="ZZo-v7-QTp" firstAttribute="top" secondItem="5vq-Bz-8fU" secondAttribute="bottom" constant="-123" id="TBb-7g-Sax"/>
                             <constraint firstItem="ZZo-v7-QTp" firstAttribute="leading" secondItem="nK4-1z-VGn" secondAttribute="leading" constant="50" id="bdc-rZ-Doc"/>

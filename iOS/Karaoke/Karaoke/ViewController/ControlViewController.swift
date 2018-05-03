@@ -28,6 +28,7 @@ class ControlViewController: UIViewController {
     var albumSingerLabel: UILabel!
 
     var effectEnabled = false
+    var recordingEnabled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,6 +191,7 @@ class ControlViewController: UIViewController {
     func updateBottomUI() {
         recordButton = makeButton(imgName: "record")
         self.view.addSubview(recordButton)
+        recordButton.addTarget(self, action: #selector(changeRecordingStatus), for: .touchUpInside)
         effectButton = makeButton(imgName: "voice_effect")
         self.view.addSubview(effectButton)
         effectButton.addTarget(self, action: #selector(changeEffectStatus), for: .touchUpInside)
@@ -224,9 +226,18 @@ class ControlViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
+    @objc func changeRecordingStatus() {
+        self.recordingEnabled = !self.recordingEnabled
+        let str = self.recordingEnabled ? "You have enabled recording!" : "You have disabled recording!"
+        let vc = UIAlertController(title: "Effect Status Changed", message: str, preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @objc func lockScreen() {
         let singingVC: SingingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "singingVC") as! SingingViewController
         singingVC.setEffectEnabled(self.effectEnabled)
+        singingVC.setRecordingEnabled(self.recordingEnabled)
         self.present(singingVC, animated: true, completion: nil)
     }
     

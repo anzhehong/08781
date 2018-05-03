@@ -57,7 +57,7 @@ class ConnectViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func connect() {
         var port = 9091
-        var host = "128.237.206.192"
+        var host = "128.237.119.141"
         let socket = SocketManager.sharedInstance()
         socket.setDelegate(self, delegateQueue: DispatchQueue.main)
         do {

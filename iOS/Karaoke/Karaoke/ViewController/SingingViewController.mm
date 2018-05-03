@@ -24,6 +24,7 @@ static const NSTimeInterval bufferDuration = 0.2;
     BOOL _started;
     
     BOOL _effectEnabled;
+    BOOL _recordingEnabled;
     
     NSMutableData *_data;
     AVAudioPlayer *_player;
@@ -68,11 +69,12 @@ static const NSTimeInterval bufferDuration = 0.2;
         return;
     }
     
-    _host = @"128.237.189.178";
+    _host = @"128.237.119.141";
     _port = 9099;
     
     _inited = YES;
     _effectEnabled = NO;
+    _recordingEnabled = NO;
     
     _format.mFormatID = kAudioFormatLinearPCM;
     _format.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
@@ -86,7 +88,9 @@ static const NSTimeInterval bufferDuration = 0.2;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_interrupted:) name:AVAudioSessionRouteChangeNotification object:nil];
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
 }
 
 - (void)dealloc
@@ -100,6 +104,10 @@ static const NSTimeInterval bufferDuration = 0.2;
 
 - (void)setEffectEnabled:(BOOL) enabled {
     _effectEnabled = enabled;
+}
+
+- (void)setRecordingEnabled:(BOOL) enabled {
+    _recordingEnabled = enabled;
 }
 
 #pragma mark - lifecycle
@@ -195,11 +203,23 @@ static const NSTimeInterval bufferDuration = 0.2;
 #pragma mark - play
 - (void)_play
 {
-    [_player stop];
-    _player = [[AVAudioPlayer alloc] initWithPcmData:_data pcmFormat:_format error:nil];
-    [_player play];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
+    AVAudioPlayer *audioPlayer;
+    //    if (audioPalyer) {
+    //        [audioPalyer release];
+    //        audioPalyer = nil;
+    //    }
     
-//    [self playWave];
+    NSError *error;
+    NSData *audioData = [NSData dataWithContentsOfFile:filePath];
+    
+    [_player stop];
+    _player = [[AVAudioPlayer alloc] initWithPcmData:audioData pcmFormat:_format error:&error];
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+    [_player play];
 }
 
 #pragma mark - record
@@ -233,7 +253,9 @@ static const NSTimeInterval bufferDuration = 0.2;
     [_recorder stop];
     _recorder = nil;
     
-    [self saveRecording];
+    if (_recordingEnabled) {
+        [self saveRecording];
+    }
     
     [self _refreshUI];
 }
@@ -333,41 +355,22 @@ static const NSTimeInterval bufferDuration = 0.2;
 
 - (void)saveRecording
 {
-//    NSMutableData *wavDatas = [[NSMutableData alloc] init];
-//
+    NSMutableData *wavDatas = [[NSMutableData alloc] init];
+
 //    int fileLength = _data.length;
 //    void *header = createWaveHeader(fileLength, 1, 16000, 16);
 //    [wavDatas appendBytes:header length:44];
-//
-//    [wavDatas appendData:_data];
-//
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
-//    [wavDatas writeToFile:filePath atomically:YES];
-}
 
-- (void)playWave
-{
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
-//    AVAudioPlayer *audioPalyer;
-////    if (audioPalyer) {
-////        [audioPalyer release];
-////        audioPalyer = nil;
-////    }
-//
-//    NSError *error;
-//    NSURL *url = [NSURL URLWithString:filePath];
-//    NSData *audioData = [NSData dataWithContentsOfFile:filePath];
-////    audioPalyer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-//    audioPalyer = [[AVAudioPlayer alloc] initWithData:audioData fileTypeHint:AVFileTypeMPEGLayer3
-//                                  error:&error];
-//    if (error) {
-//        NSLog(@"%@", error);
-//    }
-//    audioPalyer.delegate = self;
-//    [audioPalyer prepareToPlay];
-//    [audioPalyer play];
+    [wavDatas appendData:_data];
+
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [path stringByAppendingPathComponent:@"soundtouch.wav"];
+    [wavDatas writeToFile:filePath atomically:YES];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Info" message:@"The recording has been saved to your phone." preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+    [_playButton setHidden:NO];
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
