@@ -27,6 +27,9 @@ class ControlViewController: UIViewController {
     var albumNameLabel: UILabel!
     var albumSingerLabel: UILabel!
 
+    var effectEnabled = false
+    var recordingEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,19 +88,28 @@ class ControlViewController: UIViewController {
             make.center.equalTo(innerCircle)
             make.width.height.equalTo(width)
         }
-        
-        volumeUpButton = makeButton(imgName: "volume_up")
-        outerCircle.addSubview(volumeUpButton)
-        
-        volumeDownButton = makeButton(imgName: "volume_down")
-        outerCircle.addSubview(volumeDownButton)
-        
+        playButton.tag = 0
+        playButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
+
         nextSongButton = makeButton(imgName: "next_song")
         outerCircle.addSubview(nextSongButton)
+        nextSongButton.tag = 1
+        nextSongButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
         
         previousSongButton = makeButton(imgName: "previous_song")
         outerCircle.addSubview(previousSongButton)
+        previousSongButton.tag = 2
+        previousSongButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
         
+        volumeUpButton = makeButton(imgName: "volume_up")
+        outerCircle.addSubview(volumeUpButton)
+        volumeUpButton.tag = 3
+        volumeUpButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
+        
+        volumeDownButton = makeButton(imgName: "volume_down")
+        outerCircle.addSubview(volumeDownButton)
+        volumeDownButton.tag = 4
+        volumeDownButton.addTarget(self, action: #selector(sendCommand), for: .touchUpInside)
         
         
         volumeUpButton.snp.makeConstraints { (make) in
@@ -149,6 +161,7 @@ class ControlViewController: UIViewController {
         
         lockButton = makeButton(imgName: "locker_locked")
         container.addSubview(lockButton)
+        lockButton.addTarget(self, action: #selector(lockScreen), for: .touchUpInside)
         
         let leading = 10
         albumImageView.snp.makeConstraints { (make) in
@@ -178,8 +191,10 @@ class ControlViewController: UIViewController {
     func updateBottomUI() {
         recordButton = makeButton(imgName: "record")
         self.view.addSubview(recordButton)
+        recordButton.addTarget(self, action: #selector(changeRecordingStatus), for: .touchUpInside)
         effectButton = makeButton(imgName: "voice_effect")
         self.view.addSubview(effectButton)
+        effectButton.addTarget(self, action: #selector(changeEffectStatus), for: .touchUpInside)
         
         recordButton.snp.makeConstraints { (make) in
             make.top.equalTo(outerCircle.snp.bottom).offset(30)
@@ -201,6 +216,46 @@ class ControlViewController: UIViewController {
         button.setImage(img, for: .normal)
         button.tintColor = UIColor.white
         return button
+    }
+    
+    @objc func changeEffectStatus() {
+        self.effectEnabled = !self.effectEnabled
+        let str = self.effectEnabled ? "You have enabled voice effect!" : "You have disabled voice effect!"
+        let vc = UIAlertController(title: "Effect Status Changed", message: str, preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func changeRecordingStatus() {
+        self.recordingEnabled = !self.recordingEnabled
+        let str = self.recordingEnabled ? "You have enabled recording!" : "You have disabled recording!"
+        let vc = UIAlertController(title: "Effect Status Changed", message: str, preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func lockScreen() {
+        let singingVC: SingingViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "singingVC") as! SingingViewController
+        singingVC.setEffectEnabled(self.effectEnabled)
+        singingVC.setRecordingEnabled(self.recordingEnabled)
+        self.present(singingVC, animated: true, completion: nil)
+    }
+    
+    @objc func sendCommand(sender: UIButton) {
+        var cmd = ""
+        if sender.tag == 0 {
+            cmd = "PLAY"
+        } else if sender.tag == 1 {
+            cmd = "NEXT"
+        } else if sender.tag == 2 {
+            cmd = "PREV"
+        } else if sender.tag == 3 {
+            cmd = "VOLUME_UP"
+        } else if sender.tag == 4 {
+            cmd = "VOLUME_DOWN"
+        }
+        
+        SocketManager.sendCmd(cmd: cmd)
     }
 
     override func didReceiveMemoryWarning() {

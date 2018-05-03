@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import CocoaAsyncSocket
 
-class ConnectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ConnectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, GCDAsyncSocketDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     var data1 = (name: "Bryant's Macbook Pro", favorite: true)
     var data2 = (name: "David's Lenovo", favorite: false)
     var data3 = (name: "Stephon's PC", favorite: true)
     var defaultConnections: [(name: String, favorite: Bool)] =  []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,27 @@ class ConnectViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "rootTab") as! UITabBarController
         present(tabVC, animated: true, completion: nil)
+        connect()
     }
+    
+    func connect() {
+        var port = 9091
+        var host = "128.237.119.141"
+        let socket = SocketManager.sharedInstance()
+        socket.setDelegate(self, delegateQueue: DispatchQueue.main)
+        do {
+            try socket.connect(toHost: host, onPort: UInt16(port), withTimeout: -1)
+            print("connected successfully")
+        }catch let err {
+            print("fail to connect")
+            print(err)
+        }
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
+        print("didWriteDataWithTag")
+    }
+    
     
 
     /*
