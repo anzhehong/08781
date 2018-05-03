@@ -68,7 +68,7 @@ static const NSTimeInterval bufferDuration = 0.2;
         return;
     }
     
-    _host = @"128.237.206.192";
+    _host = @"128.237.189.178";
     _port = 9099;
     
     _inited = YES;
@@ -183,6 +183,8 @@ static const NSTimeInterval bufferDuration = 0.2;
     [self.view bringSubviewToFront:self.lockButton];
     [self.view bringSubviewToFront:self.startOrStopButton];
     
+    // disable play button before playing recordings is ready
+    [self.playButton setHidden:YES];
     [self.playButton setTintColor:[UIColor redColor]];
     [self.view bringSubviewToFront:self.playButton];
     
